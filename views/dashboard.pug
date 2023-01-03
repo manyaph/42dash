@@ -1,0 +1,105 @@
+doctype html
+head
+    style.
+        body{
+            display: block;
+        }
+        .row {
+            vertical-align: middle;
+            display: flex;
+            gap: 15px;
+            margin: auto;
+            width: 50%;
+            background: rgba(0, 0, 0, 0.85);
+            margin-bottom: 20px;
+            padding: 5px;
+            height: 9rem;
+        }
+        .seat {
+
+            text-align: center;
+            margin: auto;
+            width: 100%;
+        }
+        .rn {
+            color: white;
+            align-self: center;
+        }
+
+        h3 {
+            text-align: center;
+        } 
+        
+        img {
+            width: 60%;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+        }
+        .login {
+            font-size: 11px;
+            display: block;
+            color: white;
+            text-align: center;
+        }
+        .hostname {
+            font-size: 11px;
+            color: white;
+            display: block;
+            text-align: center;
+        }
+        .active {
+            margin: auto;
+            background-color: aliceblue;
+            width: 100%;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+        a {
+            align-items: center;
+        }
+
+        .empty {
+            margin: auto;
+            border : 1px solid black;
+            border-radius: 50%;
+            background-color: rgba(32,32,38);
+        }
+body 
+meta(name="viewport" content="width=device-width, initial-scale=1.0")
+.CLUSTER_1
+  h3  Cluster 1 
+  each rownum in [1,2,3,4]
+    .row 
+        .rn #{rownum}
+        each seatnum in [1,2,3,4,5,6]
+            .seat   
+                - var index = (rownum - 1) * 6 + seatnum 
+                - var compname = "c2r"+rownum+"s"+seatnum
+                if data[index] != null
+                    - var imgsrc = data[index].profile_pic
+                    - var picsrc = data[index].profile_url
+                     a(href=picsrc)
+                        img(src=imgsrc)
+                        .login #{data[index].login}
+                        .hostname #{data[index].host}
+                else
+                    .empty
+.CLUSTER_2
+  h3  Cluster 2 
+  each rownum in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
+    .row 
+        .rn #{rownum}
+        each seatnum in [1,2,3,4,5,6]
+            .seat   
+                    - var index = 24 + (rownum - 1) * 6 + seatnum
+                    - var compname = "c2r"+rownum+"s"+seatnum
+                    if typeof(data[index]) != 'undefined'
+                        - var imgsrc = data[index].profile_pic
+                        - var picsrc = data[index].profile_url
+                         a(href=picsrc)
+                            img(src=imgsrc)
+                            .login #{data[index].login}
+                            .hostname #{data[index].host}
+                    else
+                        .empty 
+
