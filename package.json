@@ -1,7 +1,0 @@
-{
-  "name": "yarn",
-  "scripts": {
-    "build": "babel src -d lib",
-    "test": "jest"
-  }
-}
