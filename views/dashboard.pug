@@ -3,6 +3,7 @@ head
     style.
         body{
             display: block;
+            
         }
         .row {
             vertical-align: middle;
@@ -14,6 +15,9 @@ head
             margin-bottom: 20px;
             padding: 5px;
             height: 9rem;
+        }
+        a {
+            text-decoration: none;
         }
         .seat {
 
@@ -28,29 +32,30 @@ head
 
         h3 {
             text-align: center;
+
         } 
-        
+        h4 {
+            text-align: center;
+        }
+
         img {
-            width: 60%;
+            width: 100%;
             aspect-ratio: 1 / 1;
             border-radius: 50%;
         }
         .login {
-            font-size: 11px;
-            display: block;
+            font-size: 10px;
             color: white;
             text-align: center;
         }
         .hostname {
-            font-size: 11px;
+            font-size: 10px;
             color: white;
-            display: block;
             text-align: center;
         }
         .active {
-            margin: auto;
-            background-color: aliceblue;
             width: 100%;
+            aspect-ratio: 1 / 1;
             border-radius: 50%;
             border: 1px solid black;
         }
@@ -67,6 +72,7 @@ head
 body 
 meta(name="viewport" content="width=device-width, initial-scale=1.0")
 .CLUSTER_1
+  - var sum = 0
   h3  Cluster 1 
   each rownum in [1,2,3,4]
     .row 
@@ -76,6 +82,7 @@ meta(name="viewport" content="width=device-width, initial-scale=1.0")
                 - var index = (rownum - 1) * 6 + seatnum 
                 - var compname = "c2r"+rownum+"s"+seatnum
                 if data[index] != null
+                    - sum = sum + 1
                     - var imgsrc = data[index].profile_pic
                     - var picsrc = data[index].profile_url
                      a(href=picsrc)
@@ -84,7 +91,9 @@ meta(name="viewport" content="width=device-width, initial-scale=1.0")
                         .hostname #{data[index].host}
                 else
                     .empty
+h4 Active: #{sum}
 .CLUSTER_2
+- var sum = 0
   h3  Cluster 2 
   each rownum in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
     .row 
@@ -94,6 +103,7 @@ meta(name="viewport" content="width=device-width, initial-scale=1.0")
                     - var index = 24 + (rownum - 1) * 6 + seatnum
                     - var compname = "c2r"+rownum+"s"+seatnum
                     if typeof(data[index]) != 'undefined'
+                        - sum = sum + 1
                         - var imgsrc = data[index].profile_pic
                         - var picsrc = data[index].profile_url
                          a(href=picsrc)
@@ -102,4 +112,4 @@ meta(name="viewport" content="width=device-width, initial-scale=1.0")
                             .hostname #{data[index].host}
                     else
                         .empty 
-
+h4 Active: #{sum}
