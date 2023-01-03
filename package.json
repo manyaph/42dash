@@ -1,7 +1,7 @@
 {
-  "name": "my-package",
+  "name": "yarn",
   "scripts": {
     "build": "babel src -d lib",
-    "start": "jest"
+    "test": "jest"
   }
 }
