@@ -8,14 +8,13 @@ head
         .row {
             vertical-align: middle;
             display: flex;
-            flex-wrap: wrap;
-            margin: auto;
-            width: 60%;
-            background: rgba(0, 0, 0, 0.85);
             gap: 15px;
+            margin: auto;
+            width: 50%;
+            background: rgba(0, 0, 0, 0.85);
             margin-bottom: 20px;
             padding: 5px;
-            height: 11rem;
+            height: 13rem;
         }
         a {
             text-decoration: none;
@@ -56,7 +55,7 @@ head
             text-align: center;
         }
         .active {
-            width: 12%;
+            width: 100%;
             aspect-ratio: 1 / 1;
             border-radius: 50%;
             border: 1px solid black;
@@ -82,6 +81,11 @@ head
                 width: 80%;
             }
         }
+
+        @viewport {
+            width: device-width ;
+            zoom: 1.0 ;
+}
 body 
 meta(name="viewport" content="width=device-width, initial-scale=1.0")
 .CLUSTER_1
